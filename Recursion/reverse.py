@@ -1,7 +1,10 @@
 # 파라미터 some_list를 거꾸로 뒤집는 함수
 def flip(some_list):
     # 코드를 입력하세요.
-    length = len(some_list)
+    if len(some_list) == 0 or len(some_list) == 1:
+        return some_list
+    else:
+        return some_list[-1:] + flip(some_list[:-1])
 
 
 # 테스트
