@@ -42,4 +42,4 @@ print(closest_pair(test_coordinates))
 #                 pair = [store1, store2]
 #
 #     return pair
-# 
+#
