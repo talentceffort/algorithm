@@ -1,11 +1,17 @@
 def sublist_max(profits, start, end):
     # O(nlgn) 으로 풀 것. Dvide and Conquer
-    pivot = start + end // 2
-
     if start == end:
         return profits[start]
-    else:
-        return max_crossing_sum(profits, start ,end)
+
+    pivot = (start + end) // 2
+
+    # 상황별로 최대 수익을 구한다
+    max_left = sublist_max(profits, start, pivot)
+    max_right = sublist_max(profits, pivot + 1, end)
+    max_cross = max_crossing_sum(profits, start, end)
+
+    # 위 세 경우 중 가장 큰 결괏값을 리턴한다
+    return max(max_left, max_right, max_cross)
 
 def max_crossing_sum(profit, start, end):
     mid = (start + end) // 2
